@@ -1,8 +1,12 @@
 <?php
 
 $config = [
-	'sourcesDir'			=> __DIR__ . '/../../development',
-	'releaseFile'			=> __DIR__ . '/../../release/index.php',
+	'sourcesDir'				=> __DIR__ . '/../../development',
+	'releaseDir'				=> __DIR__ . '/../../release',
+	// define statically copied files and folders (exclude patterns doesn't exclude anything from static copies):
+	'staticCopies'				=> [
+		'/.htaccess',			'/web.config',	'/.databases/sqlite-cdcol.db',
+	],
 	// do not include script or file, where it's relative path from sourceDir match any of these rules:
 	'excludePatterns'		=> [
 
@@ -32,27 +36,29 @@ $config = [
 		// Exclude source css and js files, use only what is generated in '/Var/Tmp' dir
 		"#^/static/js#",
 		"#^/static/css#",
+
+		// Exclude all css and js files for form fields - this example doesn't need them
 		"#^/vendor/mvccore/ext-form/(.*)\.(css|js)$#",
 	],
 	// include all scripts or files, where it's relative path from sourceDir match any of these rules:
-	// (include paterns always overides exclude patterns)
+	// (include patterns always overrides exclude patterns)
 	'includePatterns'		=> [
-		// add staticly included tracy file back again and override it's exclusion,
-		// to run composer at application start properly, but this file will not be used.
-		"#^/vendor/tracy/tracy/src/shortcuts.php#",
-		// include previously excluded Form validators - but only realy used validators
-		"#^/vendor/mvccore/ext-form/src/MvcCore/Ext/Forms/Validators/(Maxlength|SafeString|NumberField|Integer|Url)\.php$#",
-		// include previously excluded Form fields - but only realy used fields
-		"#^/vendor/mvccore/ext-form/src/MvcCore/Ext/Forms/(Text|Password|Hidden|SubmitButton|SubmitInput|Button|Number)\.php$#",
+		// include previously excluded Form validators - but only really used validators
+		"#/MvcCore/Ext/Forms/Validators/(MinMaxLength|IMinMaxLength|SafeString|Url|Number|IntNumber)\.php$#",
+		// include previously excluded Form fields - but only really used fields
+		"#/MvcCore/Ext/Forms/Fields/(Text|Password|Hidden|SubmitButton|Button|Number|IVisibleField|ILabel|IPattern|IMinMaxLength|IDataList|ISubmit|IMinMaxStepNumbers)\.php$#",
+		"#/MvcCore/Ext/Forms/Field/Props/(VisibleField|Label|Pattern|MinMaxLength|DataList|AutoComplete|PlaceHolder|Size|SpellCheck|InputMode|Submit|FormAttrs|MinMaxStepNumbers|Wrapper)\.php$#",
 	],
-	// process simple strings replacements on all readed PHP scripts before saving into result package:
-	// (replacements are executed before configured minification in RAM, they don't affect anythin on hard drive)
+	// process simple strings replacements on all read PHP scripts before saving into result package:
+	// (replacements are executed before configured minification in RAM, they don't affect anything on hard drive)
 	'stringReplacements'	=> [
 		// Switch MvcCore application back from SFU mode to automatic compile mode detection
-		'->Run(1);'		=> '->Run();',
+		'->Run(1);'									=> '->Run();',
+		'->Run(TRUE);'								=> '->Run();',
+		'->Run(true);'								=> '->Run();',
 		// Remove tracy debug library extension usage (optional):
 		"class_exists('\MvcCore\Ext\Debugs\Tracy')"	=> 'FALSE',
 	],
-	'minifyTemplates'		=> 1,// Remove non-conditional comments and whitespaces
-	'minifyPhp'				=> 1,// Remove comments and whitespaces
+	'minifyTemplates'		=> 1,// Remove non-conditional comments and white spaces
+	'minifyPhp'				=> 1,// Remove comments and white spaces
 ];
