@@ -18,7 +18,7 @@ $config = [
 		"#(composer|installed)\.((dev\.)?)(json|lock)#",// composer.json, installed.json, composer.lock, ...
 		"#LICEN(C|S)E(\.(txt|md))?#i",					// libraries licence files
 		"#\.(bak|bat|cmd|sh|md|phpt|phpproj|phpproj\.user)$#i",
-		
+
 		// Exclude specific PHP libraries
 		"#^/vendor/composer/.*#",						// composer itself
 		"#^/vendor/autoload\.php$#",					// composer autoload file
@@ -57,12 +57,10 @@ $config = [
 	// process simple strings replacements on all read PHP scripts before saving into result package:
 	// (replacements are executed before configured minification in RAM, they don't affect anything on hard drive)
 	'stringReplacements'	=> [
-		// Switch MvcCore application back from SFU mode to automatic compile mode detection
-		'->Run(1);'									=> '->Run();',
-		'->Run(TRUE);'								=> '->Run();',
-		'->Run(true);'								=> '->Run();',
-		// Remove tracy debug library extension usage (optional):
-		"class_exists('\MvcCore\Ext\Debugs\Tracy')"	=> 'FALSE',
+		// Switch \MvcCore application back from SFU mode to automatic compile mode detection
+		'->SetCompiled(\MvcCore\Application::COMPILED_SFU)'	=> '',
+		// Remove tracy debug library:
+		"class_exists('\MvcCore\Ext\Debugs\Tracy')"			=> 'FALSE',
 	],
 	'minifyTemplates'		=> 1,// Remove non-conditional comments and white spaces
 	'minifyPhp'				=> 1,// Remove comments and white spaces
