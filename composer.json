@@ -1,5 +1,5 @@
 {
-	"name": "mvccore/example-cdcol",
+	"name": "mvccore/example-cdcol-portable",
 	"type": "application",
 	"description": "MvcCore Example - CD collection - classic CRUD example with default SQLite database with cd albums.",
 	"keywords": [
@@ -28,7 +28,7 @@
 		"homepage": "https://github.com/tomFlidr"
 	}],
 	"require": {
-		"php": ">=5.3.0",
+		"php": ">=5.4.0",
 		"mrclay/minify": "2.3.*",
 		"mvccore/packager": "2.*"
 	},

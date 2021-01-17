@@ -1,7 +1,7 @@
 # MvcCore - Example - CD Collection
 
 [![Latest Stable Version](https://img.shields.io/badge/Stable-v5.0.0-brightgreen.svg?style=plastic)](https://github.com/mvccore/example-cdcol-portable/releases)
-[![License](https://img.shields.io/badge/Licence-BSD-brightgreen.svg?style=plastic)](https://github.com/mvccore/example-cdcol-portable/blob/master/LICENCE.md)
+[![License](https://img.shields.io/badge/License-BSD%203-brightgreen.svg?style=plastic)](https://mvccore.github.io/docs/mvccore/5.0.0/LICENCE.md)
 [![Packager Build](https://img.shields.io/badge/Packager%20Build-passing-brightgreen.svg?style=plastic)](https://github.com/mvccore/packager)
 ![PHP Version](https://img.shields.io/badge/PHP->=5.4-brightgreen.svg?style=plastic)
 
@@ -10,10 +10,10 @@ Skeleton for MvcCore [CD Collection (`mvccore/example-cdcol`)](https://github.co
 ## Instalation
 ```shell
 # load cd collection portable project skeleton
-composer create-project mvccore/example-cdcol-portable
+composer create-project mvccore/example-cdcol-portable ./my-cdcol-portable
 
 # go to portable project skeleton directory
-cd example-cdcol-portable
+cd my-cdcol-portable
 
 # load cd collection project
 composer create-project mvccore/example-cdcol ./development
