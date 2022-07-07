@@ -25,7 +25,9 @@ $config = [
 		"#^/vendor/mvccore/mvccore/src/startup\.php$#",	// mvccore autoload file
 		"#^/vendor.*/tracy/.*#",						// tracy library (https://tracy.nette.org/)
 		"#^/vendor/mvccore/ext-debug-tracy.*#",			// mvccore tracy adapter and all tracy panel extensions
-		"#^/vendor/mrclay/.*#",							// HTML/JS/CSS minify library
+		"#^/vendor/bin/.*#",							// CLI tools
+		"#^/vendor/tedivm/.*#",							// JS minify library
+		"#^/vendor/tubalmartin/.*#",					// CSS minify library
 		"#^/vendor/mobiledetect/mobiledetectlib/export/.*#",// Mobile Detect library export script
 		"#^/vendor/mobiledetect/mobiledetectlib/Mobile_Detect.json$#",// Exported Mobile detect data
 

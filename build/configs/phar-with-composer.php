@@ -25,7 +25,9 @@ $config = [
 		"#^/vendor/tracy/.*#",							// tracy library (https://tracy.nette.org/)
 		"#^/vendor/mvccore/ext-debug-tracy.*#",			// mvccore tracy adapter and all tracy panel extensions
 		"#^/vendor/nette/safe-stream.*#",				// nette safe stream used to complete assets in cache
-		"#^/vendor/mrclay/.*#",							// HTML/JS/CSS minify library
+		"#^/vendor/bin/.*#",							// CLI tools
+		"#^/vendor/tedivm/.*#",							// JS minify library
+		"#^/vendor/tubalmartin/.*#",					// CSS minify library
 
 		// Exclude all Form validators and fields by default
 		// and add strictly and only used validators and fields
