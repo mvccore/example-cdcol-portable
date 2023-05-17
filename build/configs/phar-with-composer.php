@@ -16,7 +16,7 @@ $config = [
 		"#^/Var/Logs/.*#",								// App development logs
 		"#composer(.*)(json|lock)#",					// composer.json, composer.lock, composer.dev.json and  composer.dev.lock
 		"#LICEN(C|S)E\.(txt|TXT|md|MD)#",				// libraries licence files
-		"#\.(bak|bat|cmd|sh|md|phpt|phpproj|phpproj.user)$#",
+		"#\.(bak|bat|cmd|sh|md|phpt|neon|dummy|phpproj|phpproj.user)$#",
 
 		// Exclude specific PHP libraries
 		"#^/vendor/composer/.*#",						// composer itself

@@ -27,7 +27,7 @@ $config = [
 		"#^/Var/Logs/.*#",								// App development logs
 		"#(composer|installed)\.((dev\.)?)(json|lock)#",// composer.json, installed.json, composer.lock, ...
 		"#LICEN(C|S)E(\.(txt|md))?#i",					// libraries licence files
-		"#\.(bak|bat|cmd|sh|md|phpt|phpproj|phpproj\.user)$#i",
+		"#\.(bak|bat|cmd|sh|md|phpt|neon|dummy|phpproj|phpproj\.user)$#i",
 
 		// Exclude specific PHP libraries
 		"#^/vendor/composer/.*#",						// composer itself
@@ -64,7 +64,7 @@ $config = [
 		// include previously excluded Form validators - but only really used validators
 		"#/MvcCore/Ext/Forms/Validators/(MinMaxLength|IMinMaxLength|SafeString|Url|Number|IntNumber)\.php$#",
 		// include previously excluded Form fields - but only really used fields
-		"#/MvcCore/Ext/Forms/Fields/(Text|Password|Hidden|SubmitButton|Button|Number|IVisibleField|ILabel|IPattern|IMinMaxLength|IDataList|ISubmit|IMinMaxStepNumbers)\.php$#",
+		"#/MvcCore/Ext/Forms/Fields/(Text|Password|Hidden|SubmitButton|Button|Number|IVisibleField|IFormAttrs|ILabel|IPattern|IMinMaxLength|IDataList|ISubmit|IMinMaxStepNumbers)\.php$#",
 		"#/MvcCore/Ext/Forms/Field/Props/(VisibleField|Label|Pattern|MinMaxLength|DataList|AutoComplete|PlaceHolder|Size|SpellCheck|InputMode|Submit|FormAttrs|MinMaxStepNumbers|Wrapper)\.php$#",
 	],
 	// process simple strings replacements on all read PHP scripts before saving into result package:
